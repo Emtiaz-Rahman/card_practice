@@ -1,24 +1,37 @@
-function updateiPhone(isIncresing) {
-    const iphoneInput = document.getElementById('iphone_number');
+function updateProduct(product, price, isIncresing) {
+    const productInput = document.getElementById(product + '_number');
 
-    let iphoneNumber = iphoneInput.value;
+    let productNumber = productInput.value;
     if (isIncresing) {
-        iphoneNumber = parseInt(iphoneInput.value) + 1;
+        productNumber = parseInt(productInput.value) + 1;
     }
-    else if (iphoneNumber > 0) {
-        iphoneNumber = parseInt(iphoneInput.value) - 1;
+    else if (productNumber > 0) {
+        productNumber = parseInt(productInput.value) - 1;
     }
-    iphoneInput.value = iphoneNumber
+    productInput.value = productNumber
 
-    const iPhoneTotal = document.getElementById('iphone_total');
-    iPhoneTotal.innerText = iphoneNumber * 1219;
+    const productTotal = document.getElementById(product + '_total');
+    productTotal.innerText = productNumber * price;
 }
 
 document.getElementById('iphone_increse').addEventListener('click', function () {
-    updateiPhone(true);
+    updateProduct('iphone', 1219, true);
 
 })
 document.getElementById('iphone_decrese').addEventListener('click', function () {
-    updateiPhone(false);
+    updateProduct('iphone', 1219, false);
 
 })
+
+document.getElementById('case_increse').addEventListener('click', function () {
+    updateProduct('case', 59, true);
+})
+
+document.getElementById('case_decrese').addEventListener('click', function () {
+    updateProduct('case', 59, false);
+})
+
+
+
+
+
