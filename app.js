@@ -12,6 +12,25 @@ function updateProduct(product, price, isIncresing) {
 
     const productTotal = document.getElementById(product + '_total');
     productTotal.innerText = productNumber * price;
+    calculateTotal();
+}
+
+function getInputValue(product) {
+    const productInput = document.getElementById(product + '_number');
+    const productNumber = parseInt(productInput.value);
+    return productNumber;
+}
+
+function calculateTotal() {
+    const iphoneTotal = getInputValue('iphone') * 1219;
+    const caseTotal = getInputValue('case') * 59;
+    const subTotal = iphoneTotal + caseTotal;
+    const tax = subTotal / 10;
+    const totalPrice = subTotal + tax;
+
+    document.getElementById('sub_total').innerText = subTotal;
+    document.getElementById('tax_amount').innerText = tax;
+    document.getElementById('total_price').innerText = totalPrice;
 }
 
 document.getElementById('iphone_increse').addEventListener('click', function () {
